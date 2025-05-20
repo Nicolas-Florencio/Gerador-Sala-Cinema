@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
-</head>
-<body>
-    <h1>Primeiro arquivo</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página principal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/index.css">
+  </head>
+  <body>
+    <main class="d-flex gap-4 flex-column">
+        <header class="container-fluid">
+            <h2 class="text-center">Bem-vindo(a), escolha o que vai assistir:</h2>
+        </header>
+
+        <div class="container d-flex gap-3">
+            <section class="container"> <!-- Cinema -->
+                <fieldset>
+                    <legend class="text-center">Filmes</legend>
+                    <div class="filmes"></div> <!-- inserção de conteúdo -->
+                </fieldset>
+            </section>
+
+            <section class="container"> <!-- Teatro -->
+                <fieldset>
+                    <legend class="text-center">Teatros</legend>
+                    <div class="teatros"></div> <!-- inserção de conteúdo -->
+                </fieldset>
+            </section>
+
+            <section class="container"> <!-- Show -->
+                <fieldset>
+                    <legend class="text-center">Shows</legend>
+                    <div class="shows"></div> <!-- inserção de conteúdo -->
+                </fieldset>
+            </section>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
+  </body>
 </html>
