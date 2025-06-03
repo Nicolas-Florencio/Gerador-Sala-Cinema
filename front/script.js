@@ -1,38 +1,72 @@
-const divFilmes = document.querySelector('.filmes');
+window.addEventListener('load', async () => {
 
-window.addEventListener('load', () => {
-    const filmes = buscarFilmes();
+    const [filmes, teatros, shows] = await Promise.all([
+        buscarEventos('filmes'),
+        buscarEventos('teatros'),
+        buscarEventos('shows')
+    ])
+
+    if (filmes.length === 0) {
+        createMessage('span', 'Não há filmes ;(', '.filmes');
+    }
+
+    if (teatros.length === 0) {
+        createMessage('span', 'Não há teatros ;(', '.teatros');
+    }
+
+    if (shows.length === 0) {
+        createMessage('span', 'Não há shows ;(', '.shows');
+    }
 
     filmes.forEach(filme => {
         const url = `/api/events/${filme._id}`;
-        const cardFilme = cardGenerator(filme.imagem, filme.titulo, filme.descricao, url);
-        divFilmes.appendChild(cardFilme);
+        cardGenerator('.filmes', filme.imagem, filme.titulo, filme.descricao, url, 'filme');
+    });
+
+    teatros.forEach(teatro => {
+        const url = `/api/events/${teatro._id}`;
+        cardGenerator('.teatros', teatro.imagem, teatro.titulo, teatro.descricao, url, 'teatro');
+    });
+
+    shows.forEach(show => {
+        const url = `/api/events/${show._id}`;
+        cardGenerator('.shows', show.imagem, show.titulo, show.descricao, url, 'show');
     });
 });
 
-async function buscarFilmes() {
+async function buscarEventos(rota) {
     try {
-        const filmes = await axios.get('/api/filmes');
-        return filmes.data;
+        const resposta = await axios.get(`http://localhost:3000/api/${rota}`);
+        return resposta.data;
     }
     catch(e) {
-        console.log('Erro: ', e.message);
+        console.error('Erro: ', e);
+        return [];
     }
 }
 
-function cardGenerator(imagem, titulo, descricao, urlComprar) { //função responsável pela criação de cards
+function cardGenerator(divPai, imagem, titulo, descricao, urlComprar, cardType) { //função responsável pela criação de cards
+    const container = document.querySelector(divPai);
     const card = document.createElement('div');
     const imagemCard = document.createElement('img');
     const tituloCard = document.createElement('h3');
     const descricaoCard = document.createElement('span');
     const linkComprar = document.createElement('a');
-
+    
+    card.className = cardType;
     imagemCard.src = imagem;
     tituloCard.innerText = titulo;
     descricaoCard.innerText = descricao;
     linkComprar.href = urlComprar;
+    linkComprar.innerText = "Comprar";
 
     card.append(imagemCard, tituloCard, descricaoCard, linkComprar);
+    container.append(card);
+}
 
-    return card;
+function createMessage(tagType, conteudo, divPai) {
+    const container = document.querySelector(divPai);
+    const mensagem = document.createElement(tagType);
+    mensagem.innerText = conteudo;
+    container.append(mensagem);
 }
