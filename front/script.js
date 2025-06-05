@@ -19,17 +19,17 @@ window.addEventListener('load', async () => {
     }
 
     filmes.forEach(filme => {
-        const url = `/api/events/${filme._id}`;
+        const url = `http://localhost:3000/api/filmes/detalhes/${filme._id}`;
         cardGenerator('.filmes', filme.imagem, filme.titulo, filme.descricao, url, 'filme');
     });
 
     teatros.forEach(teatro => {
-        const url = `/api/events/${teatro._id}`;
+        const url = `http://localhost:3000/api/teatros/detalhes/${teatro._id}`;
         cardGenerator('.teatros', teatro.imagem, teatro.titulo, teatro.descricao, url, 'teatro');
     });
 
     shows.forEach(show => {
-        const url = `/api/events/${show._id}`;
+        const url = `http://localhost:3000/api/shows/detalhes/${show._id}`;
         cardGenerator('.shows', show.imagem, show.titulo, show.descricao, url, 'show');
     });
 });
@@ -54,7 +54,7 @@ function cardGenerator(divPai, imagem, titulo, descricao, urlComprar, cardType) 
     const linkComprar = document.createElement('a');
     
     card.className = cardType;
-    imagemCard.src = imagem;
+    imagemCard.src = "./images/" + imagem;
     tituloCard.innerText = titulo;
     descricaoCard.innerText = descricao;
     linkComprar.href = urlComprar;

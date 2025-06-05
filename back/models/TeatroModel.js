@@ -19,6 +19,10 @@ class Teatro {
     async buscar() {
         return await TeatroModel.find().sort({ lancamento: -1 });
     }
+
+    async buscarTeatro(id) {
+        return await TeatroModel.findById(id);
+    }
 };
 
 module.exports = Teatro;

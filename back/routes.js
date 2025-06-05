@@ -11,7 +11,9 @@ route.get('/api/shows', homeController.searchShows);
 route.get('/api/teatros', homeController.searchTheaters);
 
 //rotas de detalhes do evento
-route.get('/api/events/:id', eventController.search);
+route.get('/api/filmes/detalhes/:id', eventController.searchFilme);
+route.get('/api/shows/detalhes/:id', eventController.searchShow);
+route.get('/api/teatros/detalhes/:id', eventController.searchTheater);
 
 
 module.exports = route;

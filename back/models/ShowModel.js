@@ -19,6 +19,10 @@ class Show {
     async buscar() {
         return await ShowModel.find().sort({ lancamento: -1 });
     }
+
+    async buscarShow(id) {
+        return await ShowModel.findById(id);
+    }   
 };
 
 module.exports = Show;

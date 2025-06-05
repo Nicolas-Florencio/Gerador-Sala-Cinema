@@ -19,6 +19,10 @@ class Filme {
     async buscar() {
         return await FilmeModel.find().sort({ lancamento: -1 });
     }
+
+    async buscarFilme(id) {
+        return await FilmeModel.findById(id);
+    }
 };
 
 module.exports = Filme;
