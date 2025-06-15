@@ -19,17 +19,17 @@ window.addEventListener('load', async () => {
     }
 
     filmes.forEach(filme => {
-        const url = `http://localhost:3000/api/filmes/detalhes/${filme._id}`;
+        const url = `event.html?id=${filme._id}&type=filme`;
         cardGenerator('.filmes', filme.imagem, filme.titulo, filme.descricao, url, 'filme');
     });
 
     teatros.forEach(teatro => {
-        const url = `http://localhost:3000/api/teatros/detalhes/${teatro._id}`;
+        const url = `event.html?id=${teatro._id}&type=teatro`;
         cardGenerator('.teatros', teatro.imagem, teatro.titulo, teatro.descricao, url, 'teatro');
     });
 
     shows.forEach(show => {
-        const url = `http://localhost:3000/api/shows/detalhes/${show._id}`;
+        const url = `event.html?id=${show._id}&type=show`;
         cardGenerator('.shows', show.imagem, show.titulo, show.descricao, url, 'show');
     });
 });

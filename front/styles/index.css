@@ -48,7 +48,7 @@ legend {
   gap: 0.5rem;
   align-items: center;
 
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 1.4rem;
   width: 100%;
@@ -83,7 +83,7 @@ legend {
   gap: 0.5rem;
   align-items: center;
 
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 1.4rem;
   width: 100%;
@@ -118,7 +118,7 @@ legend {
   gap: 0.5rem;
   align-items: center;
 
-  padding: 0.5rem;
+  padding: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 1.4rem;
   width: 100%;
@@ -147,7 +147,7 @@ a {
 img {
   width: 50%;
   height: 50%;
-  border-radius: 50%;
+  border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.8)
 }
 
